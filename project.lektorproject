@@ -1,0 +1,36 @@
+[project]
+name = Open Recognition Day
+
+[servers.ci]
+enabled = yes
+target = ghpages+https://openrecognitionalliance/openrecognitionday?cname=openrecognitionday.org
+
+[servers.manual]
+enabled = yes
+default = yes
+target = ghpages://openrecognitionalliance/openrecognitionday?cname=openrecognitionday.org
+
+[alternatives.en]
+name = English
+primary = yes
+locale = en
+
+[alternatives.de]
+name = German
+url_prefix = /de/
+locale = de
+
+[alternatives.nl]
+name = Nederlands
+url_prefix = /nl/
+locale = nl
+
+[alternatives.it]
+name = Italiano
+url_prefix = /it/
+locale = it
+
+[alternatives.fr]
+name = Français
+url_prefix = /fr/
+locale = fr

@@ -1,0 +1,203 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+<header class="banner">
+  <a href="#what">
+    {% set banner_heading_1_words = this.banner_heading_1.split(' ') %}
+    {% set banner_heading_2_words = this.banner_heading_2.split(' ') %}
+    {% set banner_content_1_words = this.banner_content_1.split(' ') %}
+    {% set banner_content_2_words = this.banner_content_2.split(' ') %}
+    <h1>{% for w in banner_heading_1_words %}<span class="l1">&nbsp;{{ w }}</span>{% endfor %}{% if this.banner_heading_2 %}<br />{% for w in banner_heading_2_words %}<span class="l2">&nbsp;{{ w }}</span>{% endfor %}{% endif %}</h1>
+    <p>
+      {% for w in banner_content_1_words %}<span class="l1">&nbsp;{{ w }}</span>{% endfor %}{% if this.banner_content_2 %}<br />{% for w in banner_content_2_words %}<span class="l2">&nbsp;{{ w }}</span>{% endfor %}{% endif %}
+    </p>
+    <span class="down animated bounce"><svg><use xlink:href="#icon-down" /></svg></span>
+  </a>
+</header>
+{% include 'includes/nav.html' %}
+<section id="what">
+  <div>
+    <div class="about">
+      <header>
+        <h2>{{ this.intro_heading }}</h2>
+        {{ this.intro_body }}
+        {% if this.intro_body_2 and (this.intro_button is not defined) %}
+        {{ this.intro_body_2 }}
+        {% endif %}
+      </header>
+      {% if this.intro_button %}
+      <a>{{ this.intro_button }}</a>
+      {% endif %}
+    </div>
+    <div class="this-year">
+      <header>
+        <h2>Open Recognition<br /> Day {{ this.next_date.strftime('%Y') }}</h2>
+        {{ this.year_intro }}
+      </header>
+      <ul>
+        <li>
+          {{ this.year_label_1 }}
+        </li>
+        <li>
+          {{ this.year_label_2 }}
+        </li>
+        <li>
+          <a href="https://openbadgefactory.com/c/earnablebadge/OFA3HPaACPa4/apply" target="_blank"><img src="../badges/bordbadge.png" alt="bord-badge"></a>
+          {{ this.year_label_3 }}
+        </li>
+        <li>
+          {{ this.year_label_4 }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- <section id="map">
+  <div id="map-container" style="height: inherit">
+  </div>
+
+  <section class="modal--show" id="modal-example" tabindex="-1"
+  role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-inner">
+      <div class="map">-->
+        <!-- detail map here -->
+     <!-- </div>
+      <div class="modal-content">
+        <div class="description">
+          <h3>Saint Catharines</h3>
+          <p>
+           Example
+          </p>
+          <ol>
+            <li>
+              
+            </li>
+            <li>
+              
+            </li>
+          </ol>
+          <p>
+            
+          </p>
+          <p>
+          
+          </p>
+          <p>
+            
+          </p>
+          <p>
+            
+          </p>
+        </div>
+        <div class="meta">
+          <h5>Date &amp; Time</h5>
+          <p>
+            Sat, 4 March 2017<br />
+            9:00 AM – 5:00 PM EST
+          </p>
+
+          <h5>Location</h5>
+          <p>
+            Cowork Niagara<br />
+            108 Saint Paul Street<br />
+            Saint Catharines, ON L2R<br />
+            Canada
+          </p>
+        </div>
+      </div>
+    </div>
+    <a href="#!" class="modal-close" title="Close this modal" data-close="Close"
+    data-dismiss="modal">?</a>
+  </section>
+  <header>
+    <div>
+      <div>
+        <a href="https://docs.google.com/spreadsheets/d/1kRfhb-KILGDu9TOGv-Rvinf9aWBaSUUjjJWvK6SZNt0/edit#gid=0" rel="external">{{ this.register_text }}</a>
+        <span class="count"><span id="event-number">0</span> {{ this.events_registered }}</span>
+      </div>
+    </div>
+  </header>
+</section>-->
+<section id="map">
+  <iframe allowfullscreen="" id="wallsio-iframe" src="https://walls.io/openrecognitionday?theme=map&amp;hide_header=1" style="border:0;height:800px;width:100%"></iframe>
+<!--<script id="wallsio-widget-script" src="https://walls.io/js/wallsio-widget-1.2.js" data-wallurl="https://walls.io/openrecognitionday?theme=map&amp;hide_header=1" data-width="100%" data-height="800"></script>
+--></section>
+<section id="who">
+  <div>
+    <header>
+      <h2>{{ this.who_heading }}</h2>
+      {{ this.who_body }}
+    </header>
+    <ul>
+      <li>
+        <span>
+          <svg><use xlink:href="#icon-user" /></svg>
+        </span>
+        <h3>{{ this.who_title_1 }}</h3>
+        {{ this.who_description_1 }}
+      </li>
+      <li>
+        <span>
+          <svg><use xlink:href="#icon-education" /></svg>
+        </span>
+        <h3>{{ this.who_title_2 }}</h3>
+        {{ this.who_description_2 }}
+      </li>
+      <li>
+        <span>
+          <svg><use xlink:href="#icon-corporate" /></svg>
+        </span>
+        <h3>{{ this.who_title_3 }}</h3>
+        {{ this.who_description_3 }}
+      </li>
+      <li>
+        <span>
+          <svg><use xlink:href="#icon-public" /></svg>
+        </span>
+        <h3>{{ this.who_title_4 }}</h3>
+        {{ this.who_description_4 }}
+      </li>
+      <li>
+        <span>
+          <svg><use xlink:href="#icon-ngo" /></svg>
+        </span>
+        <h3>{{ this.who_title_5 }}</h3>
+        {{ this.who_description_5 }}
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="resources">
+  <div>
+    <header>
+      <h2>{{ this.resources_heading }}</h2>
+      <a href="https://app.escobadges.eu/" target="_blank"><img height=20% width=20% src="../badges/cognizonebadge.png" alt="cognizone-badge"></a>
+      <a href="https://app.escobadges.eu/" target="_blank"><img height=20% width=20% src="../badges/orabadge.png" alt="ora-badge"></a>
+      <a href="https://app.escobadges.eu/" target="_blank"><img height=20% width=20% src="../badges/escobadge.png" alt="esco-badge"></a>
+      <a href="https://app.escobadges.eu/" target="_blank"><img height=20% width=20% src="../badges/okbebadge.png" alt="okbe-badge"></a>
+      <a href="https://app.escobadges.eu/" target="_blank"><img height=20% width=20% src="../badges/obfbadge.png" alt="obf-badge"></a>
+      <a href="https://app.escobadges.eu/" target="_blank"><img height=20% width=20% src="../badges/bestrbadge.png" alt="bestr-badge"></a>     
+      <a href="https://app.escobadges.eu/" target="_blank"><img height=20% width=20% src="../badges/badgrbadge.png" alt="badgr-badge"></a>
+      <a href="https://app.escobadges.eu/" target="_blank"><img height=20% width=20% src="../badges/cancredbadge.png" alt="cancred-badge"></a>
+      {{ this.resources_intro }}
+        <a href="https://twitter.com/intent/tweet?button_hashtag=openrecognition&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-size="large" data-url="https://openrecognitionday.org" data-show-count="false">Send a Tweet of #openrecognition</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </header>
+     <script id="wallsio-widget-script" src="https://walls.io/js/wallsio-widget-1.2.js" data-wallurl="https://walls.io/7BKIAW363?nobackground=1&amp;hide_header=1" data-width="100%" data-autoheight="1" data-height="800"></script>
+</div>
+</section>
+
+<section id="support">
+  <div>
+    <header>
+      <h2>{{ this.support_scheme_heading }}</h2>
+      {{ this.support_scheme_body }}
+    </header>
+    {% if this.support_scheme_button %}
+    <a href="http://www.openrecognition.org/2017/09/making-informal-recognition-visible-and-actionable-mirva/" rel="external">{{ this.support_scheme_button }}</a>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

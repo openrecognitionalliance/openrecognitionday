@@ -1,0 +1,21 @@
+branches:
+  only:
+   - master
+language: python
+python:
+- '2.7'
+install:
+- nvm install 6.1
+- nvm use 6.1
+- rvm install 2.1
+- gem install sass
+- pip install --upgrade pip
+- pip install lektor
+- npm install -g grunt
+- npm install -g firebase-tools
+- npm install
+- npm run build
+script:
+- lektor build --output-path public
+after_success:
+ - firebase deploy --only hosting --token "$FIREBASE_TOKEN"
